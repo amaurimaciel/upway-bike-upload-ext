@@ -1,7 +1,7 @@
 document.getElementById("start-btn").addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-  chrome.storage.sync.get(["campos"], (res) => {
+  chrome.runtime.sendMessage({ tipo: "config_get" }, (res) => {
     const camposConf = res.campos || [];
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
