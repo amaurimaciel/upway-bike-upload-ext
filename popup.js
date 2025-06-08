@@ -1,7 +1,10 @@
 document.getElementById("start-btn").addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
+d4t9iu-codex/desenvolver-extensão-para-preencher-dados-de-bicicletas
+  chrome.runtime.sendMessage({ tipo: "config_get" }, (res) => {
   chrome.storage.sync.get(["campos"], (res) => {
+main
     const camposConf = res.campos || [];
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
