@@ -2,6 +2,7 @@ const CAMPOS_PADRAO = [
   { campo: "brand", id: "input-brand" },
   { campo: "model", id: "input-model" },
   { campo: "color", id: "headlessui-combobox-input-:ra:" },
+  { campo: "category", id: "category" },
   { campo: "Frame Type", id: "input-frameType", opcoes: ["Closed", "Open"] },
   { campo: "Rack position", id: "input-rackPosition", opcoes: ["Front", "rear", "front and rear"] },
   { campo: "Rear rack max load", id: "input-Rear rack max load" },
