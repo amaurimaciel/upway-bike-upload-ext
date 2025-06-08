@@ -1,12 +1,27 @@
 document.getElementById("start-btn").addEventListener("click", async () => {
   let [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
 
-d4t9iu-codex/desenvolver-extensão-para-preencher-dados-de-bicicletas
-  chrome.runtime.sendMessage({ tipo: "config_get" }, (res) => {
-  chrome.storage.sync.get(["campos"], (res) => {
-main
-    const camposConf = res.campos || [];
-    chrome.scripting.executeScript({
+          if (cfg.campo.toLowerCase() === "category") {
+            const lbl = Array.from(document.querySelectorAll("label")).find(l =>
+              l.textContent.toLowerCase().includes("category")
+            );
+            if (lbl && lbl.nextElementSibling) {
+              const checks = lbl.nextElementSibling.querySelectorAll(
+                "input[type=checkbox]"
+              );
+              valor = Array.from(checks)
+                .filter(c => c.checked)
+                .map(c => (c.nextElementSibling ? c.nextElementSibling.textContent.trim() : ""))
+                .join("|");
+            }
+          } else {
+            const el = document.getElementById(cfg.id);
+            if (el) {
+              if (el.type === "checkbox") {
+                valor = el.checked ? "true" : "false";
+              } else {
+                valor = el.value || "";
+              }
       target: { tabId: tab.id },
       func: (lista) => {
         const dados = [];
