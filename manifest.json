@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Catálogo de Bikes Semi-Automático",
+  "version": "1.2",
+  "description": "Captura dados de bikes, envia para IA e preenche formulário.",
+  "permissions": ["activeTab", "scripting", "storage", "downloads"],
+  "host_permissions": ["https://api.openai.com/", "<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icons/icon.png"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  },
+  "icons": {
+    "128": "icons/icon.png"
+  }
+}

@@ -1,0 +1,1 @@
+// Reservado para uso futuro (preenchimento automático ou coleta de imagem)
